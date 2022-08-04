@@ -1,12 +1,20 @@
 // 각 퀴즈에 대한 정답을 배열에 입력
-const answer1 = ["111"];
-const answer2 = ["222"];
-const answer3 = ["333"];
-const answer4 = ["444"];
+const answer1 = ["선언순서", "선언 순서"];
+const answer2 = ["!important"];
+const answer3 = [
+  "background-size: cover;",
+  "background-size:cover;",
+  "background-size : cover;",
+  "background-size: cover",
+  "background-size:cover",
+  "background-size : cover",
+];
+const answer4 = ["72px"];
 
 const clickSubmitBtn = (quizNum) => {
   const result = document.getElementById(`quiz${quizNum}`).value;
   let resultSpan = document.getElementById(`resultStr${quizNum}`);
+  const resultSpanBox = document.getElementById(`quizResultStr${quizNum}`);
   const resultBox = document.getElementById(`quizBox${quizNum}`);
   let userResult = false;
 
@@ -41,14 +49,16 @@ const clickSubmitBtn = (quizNum) => {
 
   const checkUserResult = () => {
     if (userResult) {
-      resultBox.classList.remove("blue");
       resultBox.classList.remove("red");
       resultBox.classList.add("blue");
+      resultSpanBox.classList.remove("red");
+      resultSpanBox.classList.add("blue");
       return "정답입니다!";
     } else {
       resultBox.classList.remove("blue");
-      resultBox.classList.remove("red");
       resultBox.classList.add("red");
+      resultSpanBox.classList.remove("blue");
+      resultSpanBox.classList.add("red");
       const resultText = document.createTextNode("오답입니다!");
       return "오답입니다!";
     }
