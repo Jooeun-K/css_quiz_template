@@ -9,7 +9,7 @@ const answer3 = [
   "text-decoration : underline",
   "text-decoration : underline;",
 ];
-const answer4 = ["72px"];
+const answer4 = ["72px", "72"];
 
 const clickSubmitBtn = (quizNum) => {
   const result = document.getElementById(`quiz${quizNum}`).value;
